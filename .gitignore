@@ -1,7 +1,12 @@
+# Build and IDE related
+
 build/
 cmake-build-*/
 .idea/
 
+
+
+# Latex extras
 
 papers/*.aux
 papers/*.log
@@ -11,5 +16,10 @@ papers/*.fls
 papers/*.fdb_latexmk
 papers/*.synctex.gz
 
+
+
+# Python 
+
 __pycache__/
 .venv/
+tempCodeRunnerFile.py
