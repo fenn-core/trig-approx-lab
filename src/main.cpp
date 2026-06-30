@@ -1,30 +1,10 @@
-#include <iostream>
-#include <cmath>
-#include <numbers>
-#include <fstream>
+#include "reference.hpp"
 
 
 int main() {
 
-    long double pi = std::numbers::pi_v<long double>;
-
-    std::ofstream csv_file("../data/sin.csv");
-
-    if (!csv_file.is_open()) {
-        std::cout << "error, couldn't open file" << std::endl;
-        return 1;
-    }
-
-    float x;
-    for (int i = -1000; i < 1000; ++i) {
-        x = pi * i / 1000.0;
-        csv_file << x << "," << std::sin(x) << "\n" ;
-
-    }
-
-    csv_file.close();
-
-    std::cout << "successfully written to file" << std::endl;
+    generate_reference_csv( TrigFunction::Sin, 3.14159265359, 1000);
+    generate_reference_csv( TrigFunction::Cos, 3.14159265359, 1000);
 
 
     return 0;

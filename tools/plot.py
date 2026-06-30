@@ -1,3 +1,4 @@
+import numpy as np
 import matplotlib.pyplot as plt
 from pathlib import Path
 import csv
@@ -25,7 +26,7 @@ def extract_csv(file_dir):
                 x.append(float(row[0]))
                 y.append(float(row[1]))
 
-    return (x, y)
+    return (np.array(x), np.array(y))
 
 
 def save_graph(x, y, fig_size: tuple[float, float], func_name: str, file_name: str):
@@ -47,5 +48,7 @@ def save_graph(x, y, fig_size: tuple[float, float], func_name: str, file_name: s
 
 # Example usage
 
-x, y = extract_csv(DATA_DIR / "sin.csv")
-save_graph(x, y, FIG_STANDARD, "$ y = sin(x) $", "test_sin_figure.pdf")
+x, y = extract_csv(DATA_DIR / "sin_reference.csv")
+save_graph(x, y, FIG_STANDARD, "$ y = sin(x) $", "sin_reference_figure.pdf")
+x, y = extract_csv(DATA_DIR / "cos_reference.csv")
+save_graph(x, y, FIG_STANDARD, "$ y = cos(x) $", "cos_reference_figure.pdf")
