@@ -1,10 +1,19 @@
-#include "reference.hpp"
+#include <numbers>
+#include "approx.hpp"
 
 
 int main() {
 
-    generate_reference_csv( TrigFunction::Sin, 3.14159265359, 1000);
-    generate_reference_csv( TrigFunction::Cos, 3.14159265359, 1000);
+    using namespace approx;
+
+    generate_reference_data(Function::Sin,
+        std::numbers::pi_v<long double>, 1000);
+
+    generate_taylor_data(Function::Sin,
+        std::numbers::pi_v<long double>, 1000, 3);
+
+    generate_taylor_data(Function::Cos,
+    std::numbers::pi_v<long double>, 1000, 3);
 
 
     return 0;

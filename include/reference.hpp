@@ -4,13 +4,13 @@
 
 #pragma once
 
-
-enum class TrigFunction {
-    Sin,
-    Cos,
-};
+#include "approx.hpp"
 
 
-void generate_reference_csv(TrigFunction func, long double x_max, int samples) ;
+namespace approx {
 
+    Samples generate_reference_samples(Function func,
+                                       long double x_max,
+                                       int sample_count);
 
+}

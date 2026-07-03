@@ -44,11 +44,19 @@ def save_graph(x, y, fig_size: tuple[float, float], func_name: str, file_name: s
     ax.legend()
 
     fig.savefig(SAVE_DIR / file_name, dpi=300, bbox_inches="tight")
+    print("successfully generated plot")
 
 
 # Example usage
 
 x, y = extract_csv(DATA_DIR / "sin_reference.csv")
 save_graph(x, y, FIG_STANDARD, "$ y = sin(x) $", "sin_reference_figure.pdf")
+
 x, y = extract_csv(DATA_DIR / "cos_reference.csv")
 save_graph(x, y, FIG_STANDARD, "$ y = cos(x) $", "cos_reference_figure.pdf")
+
+x, y = extract_csv(DATA_DIR / "sin_taylor.csv")
+save_graph(x, y, FIG_STANDARD, "$ y = sin(x) $", "sin_taylor_figure.pdf")
+
+x, y = extract_csv(DATA_DIR / "cos_taylor.csv")
+save_graph(x, y, FIG_STANDARD, "$ y = cos(x) $", "cos_taylor_figure.pdf")

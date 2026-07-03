@@ -2,59 +2,33 @@
 // Created by pusana on 6/30/26.
 //
 
-
-#include <fstream>
-#include <iostream>
-#include <cmath>
-#include <iomanip>
-#include <filesystem>
 #include "reference.hpp"
 
 
-void generate_reference_csv(TrigFunction func, long double x_max, int samples) {
-    std::string rel_path;
-    long double (*trig)(long double);
+namespace approx {
 
-    switch (func) {
-        case (TrigFunction::Sin):
-            rel_path = "../data/sin_reference.csv";
-            trig = static_cast<long double (*)(long double)>(std::sinl);
-            break;
+    Samples generate_reference_samples(Function func,
+                                       long double x_max,
+                                       int sample_count) {
+        Samples samples;
+        long double x;
+        const auto target_func = resolve_function(func);
 
-        case (TrigFunction::Cos):
-            rel_path = "../data/cos_reference.csv";
-            trig = static_cast<long double (*)(long double)>(std::cosl);
-            break;
+        samples.x.resize(sample_count);
+        samples.y.resize(sample_count);
 
-        default:
-            std::cout<< "error, invalid function" <<std::endl;
-            return;
+        long double step = (2 * x_max) / (sample_count - 1);
 
-    }
+        for (int i = 0; i < sample_count; ++i) {
+            x = -x_max + i * step;
+            samples.x[i] = x;
+            samples.y[i] = target_func(x);
+        }
 
-
-    std::filesystem::path abs_path = std::filesystem::absolute(rel_path);
-
-    std::ofstream csv_file(abs_path);
-    csv_file << std::fixed << std::setprecision(15);
-
-    if (!csv_file.is_open()) {
-        std::cout << "error, couldn't open file" << std::endl;
-        return;
-    }
-
-
-    long double step = (2 * x_max) / (samples - 1);
-    for (int i = 0; i < samples; ++i) {
-        long double x = -x_max + i * step;
-
-        csv_file << x << "," << trig(x) << "\n" ;
+        return samples;
 
     }
 
-    csv_file.close();
-
-    std::cout << "successfully written to file" << std::endl;
 
 
 }
