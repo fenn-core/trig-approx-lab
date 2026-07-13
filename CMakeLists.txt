@@ -13,6 +13,8 @@ add_executable(trig_approx_lab
         src/csv.cpp
         include/approx.hpp
         src/approx.cpp
+        include/cordic.hpp
+        src/cordic.cpp
 )
 
 target_include_directories(trig_approx_lab

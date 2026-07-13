@@ -13,6 +13,26 @@
 
 namespace approx {
 
+    std::string file_name(Function func, Method method) {
+        std::string func_str;
+        switch (func) {
+            case Function::Sin: func_str = "sin"; break;
+            case Function::Cos: func_str = "cos"; break;
+        }
+
+        std::string method_str;
+        switch (method) {
+            case Method::Reference: method_str = "reference"; break;
+            case Method::Taylor: method_str = "taylor"; break;
+            case Method::Minimax: method_str = "reference"; break;
+            case Method::Cordic: method_str = "taylor"; break;
+        }
+
+        return (func_str + "_" + method_str + ".csv");
+
+    }
+
+
     void write_csv(Function func,
                    Method method,
                    Samples samples) {
