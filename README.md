@@ -153,7 +153,7 @@ Future milestones include implementing the approximation methods and generating 
 
 ### Numerical Methods
 
-- [ ] Taylor series
+- [x] Taylor series
 - [ ] Minimax approximation
 - [ ] CORDIC
 - [ ] Error analysis
