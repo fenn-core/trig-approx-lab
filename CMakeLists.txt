@@ -15,6 +15,8 @@ add_executable(trig_approx_lab
         src/approx.cpp
         include/cordic.hpp
         src/cordic.cpp
+        src/lut_linear.cpp
+        include/lut_linear.hpp
 )
 
 target_include_directories(trig_approx_lab

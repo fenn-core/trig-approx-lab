@@ -2,7 +2,7 @@
 
 A numerical methods project exploring different approaches to computing trigonometric functions.
 
-The objective is to understand the mathematics, numerical behavior, and engineering tradeoffs behind function approximation.
+The goal is to understand the mathematics, numerical behavior, and engineering tradeoffs behind function approximation.
 
 The project combines modern C++, Python, and LaTeX into a reproducible workflow capable of generating numerical experiments, publication-quality figures, and paper-style documentation.
 
@@ -16,6 +16,7 @@ Current planned implementations:
 - Taylor Series
 - Minimax (Chebyshev / Remez-generated polynomial)
 - CORDIC
+- LUT + Linear Interpolation
 
 Each method will be implemented independently and evaluated under identical experimental conditions.
 
@@ -53,7 +54,7 @@ Publication-quality Figures
    LaTeX Papers
 ```
 
-The C++ code performs all numerical computation.
+The C++ code performs all numerical computations.
 
 Python is responsible only for visualization.
 
@@ -126,19 +127,9 @@ A final comparative paper summarizes and contrasts every method.
 
 ## Current Status
 
-Current proof-of-concept pipeline:
+Reference value generation, Taylor Series and CORDIC methods have been implemented  
 
-```
-C++
- ↓
-CSV generation
- ↓
-Python plotting
- ↓
-PDF figures
-```
-
-Future milestones include implementing the approximation methods and generating comparative error analyses.
+Future milestones include implementing the LUT linear approximation method and generating comparative error analyses.
 
 
 ## Roadmap
@@ -148,22 +139,25 @@ Future milestones include implementing the approximation methods and generating 
 - [x] Project structure
 - [x] Data generation pipeline
 - [x] Plot generation
+- [x] LUT generation
 - [ ] Benchmark framework
 - [ ] Automation scripts
 
 ### Numerical Methods
 
 - [x] Taylor series
+- [X] CORDIC
+- [ ] LUT + Linear Interpolation
 - [ ] Minimax approximation
-- [ ] CORDIC
 - [ ] Error analysis
 - [ ] Comparative study
 
 ### Documentation
 
 - [ ] Taylor paper
-- [ ] Minimax paper
 - [ ] CORDIC paper
+- [ ] LUT + Linear Interpolation paper
+- [ ] Minimax paper
 - [ ] Comparative paper
 
 

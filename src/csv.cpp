@@ -38,7 +38,8 @@ namespace approx {
                    Samples samples) {
 
 
-        std::string rel_path = "data/" + file_name(func, method);
+        std::string name = file_name(func, method);
+        std::string rel_path = "data/" + name;
         std::filesystem::path abs_path = std::filesystem::absolute(rel_path);
 
         std::ofstream csv_file(abs_path);
@@ -54,7 +55,7 @@ namespace approx {
         }
 
         csv_file.close();
-        std::cout << "successfully written to file" << std::endl;
+        std::cout << "successfully written to file " << name << std::endl;
 
     }
 

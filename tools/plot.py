@@ -44,7 +44,7 @@ def save_graph(x, y, fig_size: tuple[float, float], func_name: str, file_name: s
     ax.legend()
 
     fig.savefig(SAVE_DIR / file_name, dpi=300, bbox_inches="tight")
-    print("successfully generated plot")
+    print(f"successfully generated plot {file_name}")
 
 
 # Example usage
