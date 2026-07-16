@@ -13,7 +13,10 @@ int main() {
         std::numbers::pi_v<long double>, 1000, 3);
 
     generate_taylor_data(Function::Cos,
-    std::numbers::pi_v<long double>, 1000, 3);
+        std::numbers::pi_v<long double>, 1000, 3);
+
+    generate_cordic_data(Function::Sin,
+        std::numbers::pi_v<long double>, 1000, 8);
 
 
     return 0;

@@ -8,6 +8,7 @@
 #include <vector>
 #include <stdexcept>
 #include <string>
+#include <cstdint>
 
 
 namespace approx {
@@ -56,6 +57,12 @@ namespace approx {
                          long double x_max,
                          int sample_count,
                          int term_count);
+
+
+    void generate_cordic_data(Function func,
+                          long double x_max,
+                          std::uint16_t sample_count,
+                          std::uint8_t iterations);
 
 
 }

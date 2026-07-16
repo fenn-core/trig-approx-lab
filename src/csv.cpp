@@ -24,8 +24,8 @@ namespace approx {
         switch (method) {
             case Method::Reference: method_str = "reference"; break;
             case Method::Taylor: method_str = "taylor"; break;
-            case Method::Minimax: method_str = "reference"; break;
-            case Method::Cordic: method_str = "taylor"; break;
+            case Method::Cordic: method_str = "cordic"; break;
+            case Method::Minimax: method_str = "minimax"; break;
         }
 
         return (func_str + "_" + method_str + ".csv");
