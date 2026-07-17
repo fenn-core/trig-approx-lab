@@ -8,6 +8,7 @@
 #include "reference.hpp"
 #include "taylor.hpp"
 #include "cordic.hpp"
+#include "lut_linear.hpp"
 
 
 namespace approx {
@@ -45,6 +46,21 @@ namespace approx {
             generate_cordic_samples(func, x_max, sample_count, iterations);
 
         write_csv(func, Method::Cordic, samples);
+
+    }
+
+    void generate_lut_linear_data(Function func,
+                                  long double x_max,
+                                  int sample_count,
+                                  int lut_intervals) {
+
+        Samples samples =
+            generate_lut_linear_samples(func,
+                                        x_max,
+                                        sample_count,
+                                        lut_intervals);
+
+        write_csv(func, Method::LutLinear, samples);
 
     }
 

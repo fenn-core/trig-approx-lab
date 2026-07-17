@@ -63,3 +63,12 @@ save_graph(x, y, FIG_STANDARD, "$ y = cos(x) $", "cos_taylor_figure.pdf")
 
 x, y = extract_csv(DATA_DIR / "sin_cordic.csv")
 save_graph(x, y, FIG_STANDARD, "$ y = sin(x) $", "sin_cordic_figure.pdf")
+
+x, y = extract_csv(DATA_DIR / "cos_cordic.csv")
+save_graph(x, y, FIG_STANDARD, "$ y = cos(x) $", "cos_cordic_figure.pdf")
+
+x, y = extract_csv(DATA_DIR / "sin_lut_linear.csv")
+save_graph(x, y, FIG_STANDARD, "$ y = sin(x) $", "sin_lut_linear_figure.pdf")
+
+x, y = extract_csv(DATA_DIR / "cos_lut_linear.csv")
+save_graph(x, y, FIG_STANDARD, "$ y = cos(x) $", "cos_lut_linear_figure.pdf")

@@ -9,9 +9,14 @@
 #include <stdexcept>
 #include <string>
 #include <cstdint>
+#include <numbers>
 
 
 namespace approx {
+
+    inline constexpr long double pi =
+        std::numbers::pi_v<long double>;
+
 
     enum class Function {
         Sin,
@@ -22,8 +27,9 @@ namespace approx {
     enum class Method {
         Reference,
         Taylor,
-        Minimax,
         Cordic,
+        LutLinear,
+        Minimax,
 
     };
 
@@ -63,6 +69,12 @@ namespace approx {
                           long double x_max,
                           std::uint16_t sample_count,
                           std::uint8_t iterations);
+
+
+    void generate_lut_linear_data(Function func,
+                              long double x_max,
+                              int sample_count,
+                              int lut_intervals);
 
 
 }

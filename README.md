@@ -92,7 +92,6 @@ docs/       Programming documentation
 - Polynomial degree comparison
 - CORDIC convergence
 - Range reduction behavior
-- Generated assembly inspection
 
 
 ## Documentation
@@ -147,7 +146,7 @@ Future milestones include implementing the LUT linear approximation method and g
 
 - [x] Taylor series
 - [X] CORDIC
-- [ ] LUT + Linear Interpolation
+- [X] LUT + Linear Interpolation
 - [ ] Minimax approximation
 - [ ] Error analysis
 - [ ] Comparative study

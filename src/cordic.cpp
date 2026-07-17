@@ -42,6 +42,8 @@ namespace approx {
             case Function::Sin: return y;
         }
 
+        throw std::logic_error("invalid function enum");
+
     }
 
 
@@ -59,10 +61,7 @@ namespace approx {
         samples.y.resize(sample_count);
 
         const auto raw_x_max = static_cast<std::int64_t>(
-                std::llround(
-                    x_max * 32768L /
-                    std::numbers::pi_v<long double>
-                    )
+                std::llround(x_max * 32768L / pi)
                 );
 
         const std::int64_t interval_count = sample_count - 1;
@@ -78,6 +77,8 @@ namespace approx {
 
             std::int64_t raw_angle =
                 -raw_x_max + offset;
+
+            const std::int64_t original_angle = raw_angle;
 
             while (raw_angle >= 32768)
                 raw_angle -= 65536;
@@ -98,8 +99,12 @@ namespace approx {
 
             std::int16_t raw_value = cordic(func, raw_angle, iterations);
 
+            if (func == Function::Cos && negate_cosine)
+                raw_value = -raw_value;
+
+
             samples.x[i] =
-                (raw_angle * std::numbers::pi_v<long double> / 32768.0);
+                original_angle * pi / 32768.0;
             samples.y[i] = (raw_value / 16384.0);
 
         }

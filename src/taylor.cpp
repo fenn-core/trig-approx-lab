@@ -69,7 +69,6 @@ namespace approx {
 
         return samples;
 
-
     }
 
 
@@ -77,6 +76,7 @@ namespace approx {
                                     long double x_max,
                                     int sample_count,
                                     int term_count) {
+
         Samples samples;
 
         switch (func) {

@@ -3,6 +3,8 @@
 build/
 cmake-build-*/
 .idea/
+tempCodeRunnerFile.*
+
 
 
 
@@ -22,7 +24,7 @@ papers/*.synctex.gz
 
 __pycache__/
 .venv/
-tempCodeRunnerFile.py
+
 
 
 # Generated data

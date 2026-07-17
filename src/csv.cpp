@@ -8,6 +8,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <stdexcept>
 #include "approx.hpp"
 
 
@@ -25,7 +26,10 @@ namespace approx {
             case Method::Reference: method_str = "reference"; break;
             case Method::Taylor: method_str = "taylor"; break;
             case Method::Cordic: method_str = "cordic"; break;
+            case Method::LutLinear: method_str = "lut_linear"; break;
             case Method::Minimax: method_str = "minimax"; break;
+
+            default: throw std::logic_error("invalid method enum");
         }
 
         return (func_str + "_" + method_str + ".csv");
